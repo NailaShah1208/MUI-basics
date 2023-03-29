@@ -1,25 +1,32 @@
-import logo from './logo.svg';
+import React,{useState} from 'react'
 import './App.css';
-
+import { Typography, Button, TextField, AppBar, Toolbar, Tabs, Tab } from '@mui/material';
+import SnackBarr from './components/SnackBarr';
 function App() {
+  const [value,setValue]=useState(0);
+  const handleChange=(e,newValue)=>{
+    console.log(newValue);
+    setValue(newValue)
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+       <AppBar>
+        <Toolbar>
+        <Typography variant="h5">Naila shah</Typography>
+        <Tabs 
+        onChange={handleChange}>
+          <Tab label="Home" index={0}/>
+          <Tab label="About" index={1}/>
+          <Tab label="Contact" index={2}/>
+        </Tabs>
+        </Toolbar>
+       </AppBar>       
+     <br/>
+     <br/>
+     <SnackBarr/>
     </div>
   );
-}
+} 
 
 export default App;
